@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Welcome</title>
+        <link rel="stylsheet" href="view/style.css">
+    </head>
+
+
+<body style="background-color:rgba(71, 79, 94, 0.568);">
+    <!-- <form id="access" style="color: rgb(10, 10, 10);">     -->
+    
+    <center><H1>Input the details</H1>
+    <label for="host">Host: </label>
+    <input type="text" id="host" placeholder="ex: localhost/ip address"><br><br>
+    <label for="username">Username</label>
+    <input type="text" id="username" name="username" placeholder="ex: username" ><br><br>
+    <label for="password">Password:</label>
+    <input type="text" id="password" name="password" placeholder="ex: password"><br><br>
+    <label for="db">Database:</label>
+    <input type="text" id="db" name="db" Placeholder="Database Name"><br><br><br>
+    <button onclick="myfunction()">submit</button>
+    <!-- </form> -->
+
+    <form id="generate">
+    <h2>Click Get Button to Generate the Data</h2>
+    <button id="get">Generate</button>
+    <button id="post">Update</button></center>
+    </form>
+    <script src="C:\Users\fattah\Documents\SqlJson\JKRPRoject2\index.js">
+        function myfunction(){
+            const h = document.getElementById("host").value=Connection.Config.host.value;
+            const u = document.getElementById("username").value;
+            const p = document.getElementById("password").value;
+            const d = document.getElementById("db").value;
+
+            // localStorage.setItem('hostloc',JSON.stringify({te: h}));
+            // localStorage.setItem('username',u);
+            // localStorage.SetItem('pass',p);
+            // localStorage.setItem('db'.d);
+
+            // window.location.href="index.js";
+            console.log(h);
+            console.log(u);
+            console.log(p);
+            console.log(d);
+            // window.location.href="index.js";
+        }
+        let x=null;
+        if(myfunction!=x){
+        const getBtn = document.getElementById('get')
+        const postBtn= document.getElementById('post')
+        const input= document.getElementById('input')
+        
+        const baseURL = 'http://localhost:3000/exportcsv'
+
+        getBtn.addEventListener('click',getInfo)
+        async function getInfo(e){
+            e.preventDefault()
+            const res=await fetch(baseURL,
+            {
+                method: 'GET'
+            })
+            console.log(res);
+            res.response;
+        }
+     
+        async function postInfo(){
+        }
+        // setInterval(postInfo(){
+        //     console.log("repeated process");
+        // }, 5000);
+    }
+        else{
+            console.log("please put proper information")
+        }
+    </script>
+</body>
+</html>
